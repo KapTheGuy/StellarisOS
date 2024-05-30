@@ -1,7 +1,14 @@
+/*
+    @brief: Bootloader for StellarisOS
+    @author: Kap Petrov
+    @desc: Bootloader C File for StellarisOS -- A Minimal ARM Operating System,
+          Emulated version, runs on a TI Stellaris LMS6965 On QEMU.
+*/
+
 #include <stdint.h>
 #define CORTEX_M3_EXCEPTIONS 16
 
-/* Linker symbols for TI Stellaris LM3S6965 
+/* Linker symbols for TI Stellaris LM3S6965
  * defining start/end of various sections
  * using long as ANSI C guarentees long to be at least 4 bytes (32-bits))
  */
@@ -63,14 +70,14 @@ void (* const  _exceptions[CORTEX_M3_EXCEPTIONS])(void) = {
 /* _Reset_Handler is what is invoked when the processor is reset.
  * As seen in the vector table, it represents the initial value of
  * the program counter. This is where we setup and call main()
- * We'll create a separate section .startup so this resides 
+ * We'll create a separate section .startup so this resides
  * immediately after the vector table - as required by LM3S6965 (ARM Cortex-M3)
  */
 __attribute__ ((section(".startup")))
 void _Reset_Handler(void)
 {
     /* Copy the data segment from flash to sram */
-    uint32_t *pSrc = &_flash_sdata;   
+    uint32_t *pSrc = &_flash_sdata;
     uint32_t *pDest = &_sram_sdata;
 
     while(pDest < &_sram_edata)
@@ -82,7 +89,7 @@ void _Reset_Handler(void)
 
     /* Zero initialize the bss segment in sram */
     pDest = &_sram_sbss;
-    
+
     while(pDest < &_sram_ebss)
     {
         *pDest = 0;
@@ -92,7 +99,7 @@ void _Reset_Handler(void)
     /* Call main() */
     main();
 
-   /* main() isn't supposed return 
+   /* main() isn't supposed return
     * - if it does, we need to identify this
     * for now, we'll loop infintely
     */

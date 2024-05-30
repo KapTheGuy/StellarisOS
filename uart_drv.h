@@ -1,3 +1,10 @@
+/*
+    @brief: UART Driver for StellarisOS
+    @author: Kap Petrov
+    @desc: UART Driver C Header File for StellarisOS -- A Minimal ARM Operating System,
+          Emulated version, runs on a TI Stellaris LMS6965 On QEMU.
+*/
+
 #ifndef UART_DRV_H
 #define UART_DRV_H
 
