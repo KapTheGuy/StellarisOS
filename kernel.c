@@ -50,6 +50,7 @@ int main(void)
         else if (strcmp(first_ip, "12213225765479766968978976788779864347998765434") == 0)
         {
             serial_puts(ANSI_COLOR_RED "\n\rwhy would you type that?\n\r" ANSI_COLOR_RESET);
+            delay(100000000);
         }
     }
 

@@ -21,6 +21,14 @@
 /* String compare */
 int strcmp(const char *s1, const char *s2);
 
+/* String to number */
+int stringToNumber(char *str);
+
+#define MAX_DIGITS 20 // Maximum number of digits supported
+
+// Function to convert a number to a string
+char* number_to_string(int num);
+
 /* Output a character */
 void serial_putchar(const char c);
 
