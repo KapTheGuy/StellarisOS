@@ -30,11 +30,11 @@ void start_calc()
 {
     serial_clear();
 
-    serial_puts(ANSI_COLOR_YELLOW "CALCULATOR\n\r" ANSI_COLOR_RESET);
+    serial_puts(ANSI_COLOR_CYAN "CALCULATOR\n\r" ANSI_COLOR_RESET);
 
     char operator[64];
 
-    serial_puts("Please choose operator (+, -, *, /) > ");
+    serial_puts(ANSI_COLOR_CYAN "Please choose operator (+, -, *, /) > ");
 
     serial_gets(operator);
 
@@ -51,7 +51,7 @@ void start_calc()
 
         serial_puts("\n\r");
         serial_puts(number_to_string(add(stringToNumber(a), stringToNumber(b))));
-        serial_puts("\n\r");
+        serial_puts("\n\r" ANSI_COLOR_RESET);
     }
     else if (strcmp(operator, "-") == 0)
     {
@@ -66,7 +66,7 @@ void start_calc()
 
         serial_puts("\n\r");
         serial_puts(number_to_string(sub(stringToNumber(a), stringToNumber(b))));
-        serial_puts("\n\r");
+        serial_puts("\n\r" ANSI_COLOR_RESET);
     }
     else if (strcmp(operator, "*") == 0)
     {
@@ -81,7 +81,7 @@ void start_calc()
 
         serial_puts("\n\r");
         serial_puts(number_to_string(mul(stringToNumber(a), stringToNumber(b))));
-        serial_puts("\n\r");
+        serial_puts("\n\r" ANSI_COLOR_RESET);
     }
     else if (strcmp(operator, "/") == 0)
     {
@@ -96,7 +96,7 @@ void start_calc()
 
         serial_puts("\n\r");
         serial_puts(number_to_string(div(stringToNumber(a), stringToNumber(b))));
-        serial_puts("\n\r");
+        serial_puts("\n\r" ANSI_COLOR_RESET);
     }
     delay(2);
     serial_clear();

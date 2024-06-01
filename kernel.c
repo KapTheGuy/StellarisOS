@@ -13,7 +13,6 @@
 /* Kernel entry point */
 int main(void)
 {
-
     /* Buffer, 64 characters long, to store the user input */
     char first_ip[64];
 
@@ -26,11 +25,22 @@ int main(void)
         serial_clear();
 
         /* Options */
-        serial_puts("\n\r1. SETTINGS\n\r");
-        serial_puts("\n\r2. DEVICE INFORMATION\n\r");
-        serial_puts("\n\r3. CALCULATOR\n\r");
+        if (mode == 0)
+        {
+            serial_puts("\n\r1. SETTINGS\n\r");
+            serial_puts("\n\r2. DEVICE INFORMATION\n\r");
+            serial_puts("\n\r3. CALCULATOR\n\r");
 
-        serial_puts("\n\rPlease choose your option: ");
+            serial_puts("\n\rPlease choose your option: ");
+        }
+        else if (mode == 1)
+        {
+            serial_puts(ANSI_COLOR_CYAN "\n\r1. SETTINGS\n\r");
+            serial_puts(ANSI_COLOR_CYAN "\n\r2. DEVICE INFORMATION\n\r");
+            serial_puts(ANSI_COLOR_CYAN "\n\r3. CALCULATOR\n\r");
+
+            serial_puts(ANSI_COLOR_CYAN "\n\rPlease choose your option: " ANSI_COLOR_RESET);
+        }
 
         /* Get user input */
         serial_gets(first_ip);

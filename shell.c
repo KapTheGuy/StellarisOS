@@ -7,6 +7,8 @@
 
 #include "shell.h"
 
+int mode = 0;
+
 /* String compare */
 int strcmp(const char *s1, const char *s2) {
     while (*s1 && (*s1 == *s2)) {

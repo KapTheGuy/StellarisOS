@@ -18,6 +18,14 @@
 #define ANSI_COLOR_CYAN    "\x1b[36m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
+/* Determines color scheme */
+/*CODES
+  0 = Normal
+  1 = Blue
+*/
+
+extern int mode;
+
 /* String compare */
 int strcmp(const char *s1, const char *s2);
 
