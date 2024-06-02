@@ -1,5 +1,10 @@
 # StellarisOS
-Minimal ARM Cortex-M3 Operating System
+StellarisOS is a Minimal ARM Cortex-M3 Operating System. It can be modified to run on anything that supports Cortex-M3.
+It is mostly made in C.
+It was created by XICreations's CEO, Kap Petrov on 2024, May 27th.
+
+## Contacts
+Discord: https://discord.gg/3QzS7WzGSB (dripkap is the owner of this in the server.)
 
 # How to compile
 To compile, you'll need a unix system able to run make. (eg. Linux, WSL2, MSYS2, etc)
