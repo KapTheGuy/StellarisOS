@@ -28,13 +28,21 @@ int div(int a, int b)
 
 void start_calc()
 {
+    char operator[64];
     serial_clear();
 
-    serial_puts(ANSI_COLOR_CYAN "CALCULATOR\n\r" ANSI_COLOR_RESET);
+    if (mode == 1)
+    {
+        serial_puts(ANSI_COLOR_CYAN "CALCULATOR\n\r" ANSI_COLOR_RESET);
 
-    char operator[64];
+        serial_puts(ANSI_COLOR_CYAN "Please choose operator (+, -, *, /) > ");
+    }
+    else
+    {
+        serial_puts(ANSI_COLOR_YELLOW "CALCULATOR\n\r" ANSI_COLOR_RESET);
 
-    serial_puts(ANSI_COLOR_CYAN "Please choose operator (+, -, *, /) > ");
+        serial_puts("Please choose operator (+, -, *, /) > ");
+    }
 
     serial_gets(operator);
 
